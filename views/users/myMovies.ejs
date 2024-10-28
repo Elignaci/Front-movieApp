@@ -1,0 +1,12 @@
+<%- include('./templates/header.ejs')  %>
+<%- include('./templates/nav.ejs')  %>
+
+
+<form action="/movies/favorites" method="POST">
+    <input type="text" id="titulo" name="titulo" >
+    <input type="text" id="director" name="director">
+    <input type="text" id="año" name="año">
+    <input type="text" id="genero" name="genero">
+    <input type="text" id="duracion" name="duracion">
+</form>
+<%- include('./templates/footer.ejs')  %>  

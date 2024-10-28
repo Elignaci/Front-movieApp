@@ -1,0 +1,32 @@
+<%- include('./templates/header.ejs') %>
+    <%- include('./templates/nav.ejs') %>
+        <main>
+            <h2>Peliculas</h2>
+            <section>
+                <div class="card-group">
+                    <article class="card">
+                        <h2 class="card-title">
+                            <%= pelicula %>
+                        </h2>
+                        <img src="" alt="">
+                        <p class="card-text">
+                            <%= año %>
+                        </p>
+                        <p class="card-text">
+                            <%= director %>
+                        </p>
+                        <p class="card-text">
+                            <%= genero %>
+                        </p>
+                        <p class="card-text">
+                            <%= duracion %>
+                        </p>
+                    </article>
+                    <div class="favoritos">
+                        <button type="button" class="btn btn-primary">Favoritos></button>
+                        </article>
+                    </div>
+            </section>
+        </main>
+
+        <%- include('./templates/footer.ejs') %>
