@@ -1,6 +1,6 @@
 const express = require('express')
 require ('dotenv').config()
-const port = process.env.PORT || 3000; 
+const port = process.env.PORT
 const cors = require('cors')
 
 /* EXPRESS */
@@ -17,7 +17,7 @@ app.set('view engine', 'ejs')
 app.use(express.static(__dirname + "/public"));
 
 /* RUTAS */
-app.use('/admin', require ('./routers/adminRouters'))
+app.use('/', require ('./routers/adminRouters'))
 app.use('/', require('./routers/publicRouters'))
 
 

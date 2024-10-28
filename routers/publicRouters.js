@@ -1,11 +1,20 @@
 const express = require('express');
 const router = express.Router()
 
-const {getIndex}= require('../controllers/publicControllers')
+const {
+    getIndex,
+    getMovies,
+    getMyMovies,
+    getSingleMovies
+    
+    }= require('../controllers/publicControllers')
 
 /* get index */
 router.get('/',getIndex)
 
+router.get('/movies',getMovies)
+router.get('/myMovies',getMyMovies)
+router.get('/movies',getSingleMovies)
 
 
 module.exports = router;
