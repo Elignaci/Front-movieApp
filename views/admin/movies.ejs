@@ -1,0 +1,36 @@
+<%- include('./admin/templates/header.ejs') %>
+    <%- include('./admin/templates/nav.ejs') %>
+        <main>
+            <div class="button">
+                <button type="button" class="btn btn-primary">BUSCAR UNA PELI</button>
+            </div>
+            <h2>Peliculas</h2>
+            <section>
+                <div class="card-group">
+                    <article class="card">
+                        <h2 class="card-title">
+                            <%= pelicula %>
+                        </h2>
+                        <img src="" alt="">
+                        <p class="card-text">
+                            <%= año %>
+                        </p>
+                        <p class="card-text">
+                            <%= director %>
+                        </p>
+                        <p class="card-text">
+                            <%= genero %>
+                        </p>
+                        <p class="card-text">
+                            <%= duracion %>
+                        </p>
+                    </article>
+                </div>
+                <div>
+                    <a href="/editMovies" class="boton-editMovies">EDITAR PELICULAS</a>
+                    <a href="/createMovies" class="boton-createMovies">CREAR PELICULAS</a>
+                </div>
+            </section>
+        </main>
+
+        <%- include('./admin/templates/footer.ejs') %>

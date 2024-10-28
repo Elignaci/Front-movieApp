@@ -1,0 +1,26 @@
+<%- include('./templates/header.ejs') %>
+    <%- include('./templates/nav.ejs') %>
+
+     <section>
+            <div class="card-group">
+                <article class="card">
+                    <h2 class="card-title">
+                        <%= pelicula %>
+                    </h2>
+                    <img src="" alt="">
+                    <p class="card-text">
+                        <%= año %>
+                    </p>
+                    <p class="card-text">
+                        <%= director %>
+                    </p>
+                    <p class="card-text">
+                        <%= genero %>
+                    </p>
+                    <p class="card-text">
+                        <%= duracion %>
+                    </p>
+            </div>
+    </section>
+
+        <%- include('./templates/footer.ejs') %>
