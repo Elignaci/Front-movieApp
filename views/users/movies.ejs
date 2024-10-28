@@ -1,32 +1,42 @@
 <%- include('./templates/header.ejs') %>
-    <%- include('./templates/nav.ejs') %>
-        <main>
-            <h2>Peliculas</h2>
-            <section>
+<%- include('./templates/nav.ejs') %>
+<main>
+    <h2>Peliculas</h2>
+    <section>
+        <% if (ok) { %>
+            <% if (data.length> 0) { %>
                 <div class="card-group">
-                    <article class="card">
-                        <h2 class="card-title">
-                            <%= pelicula %>
-                        </h2>
-                        <img src="" alt="">
-                        <p class="card-text">
-                            <%= año %>
-                        </p>
-                        <p class="card-text">
-                            <%= director %>
-                        </p>
-                        <p class="card-text">
-                            <%= genero %>
-                        </p>
-                        <p class="card-text">
-                            <%= duracion %>
-                        </p>
-                    </article>
-                    <div class="favoritos">
-                        <button type="button" class="btn btn-primary">Favoritos></button>
+                    <% data.forEach(({ pelicula, año, director, genero, duracion })=> { %>
+                        <article class="card">
+                            <h2 class="card-title">
+                                <%= pelicula %>
+                            </h2>
+                            <img src="" alt="">
+                            <p class="card-text">
+                                <%= año %>
+                            </p>
+                            <p class="card-text">
+                                <%= director %>
+                            </p>
+                            <p class="card-text">
+                                <%= genero %>
+                            </p>
+                            <p class="card-text">
+                                <%= duracion %>
+                            </p>
                         </article>
-                    </div>
-            </section>
-        </main>
+                        <% }) %>
+                <% } else { %>
+            <p>Pelicula no encontrada</p>
+            <% } %>
+        <% } else { %>
+        <p>Hubo un problema en la carga. Intentalo mas tarde.</p>
+                <% } %>
+                </div>
+            <div class="favoritos">
+                <button type="button" class="btn btn-primary">Favoritos></button>
+            </div>
+    </section>
+</main>
 
-        <%- include('./templates/footer.ejs') %>
+<%- include('./templates/footer.ejs') %>

@@ -1,10 +1,10 @@
-<%- include('./admin/templates/header.ejs') %>
-    <%- include('./admin/templates/nav.ejs') %>
+<%- include('./templates/header.ejs') %>
+    <%- include('./templates/nav.ejs') %>
 
 <main class="container">
     <h1>CREAR NUEVA PELICULA</h1>
     <section class="mb-5"> 
-<form action="/admin/movies/new" method="POST">
+<form action="/movies/new" method="POST">
 <input type="text" id="titulo" name="titulo" placeholder="escribe aqui el titulo de la pelicula" class="from-control mb-2">
 <input type="text" id="director" name="director" placeholder="director de la pelicula" class="from-control mb-2">
 <input type="text" id="año" name="año" placeholder="año de publicacion" class="from-control mb-2">
@@ -15,4 +15,4 @@
 </form>
     </section>
 </main>
-    <%- include('./admin/templates/footer.ejs') %>
+    <%- include('./templates/footer.ejs') %>

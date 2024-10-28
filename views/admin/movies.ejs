@@ -1,36 +1,36 @@
-<%- include('./admin/templates/header.ejs') %>
-    <%- include('./admin/templates/nav.ejs') %>
-        <main>
-            <div class="button">
-                <button type="button" class="btn btn-primary">BUSCAR UNA PELI</button>
+<%- include('./templates/header.ejs') %>
+<%- include('./templates/nav.ejs') %>
+<main>   
+    <h1>Todas las peliculas</h1>
+       <form action="">
+        <!-- buscar -->
+            <label for="busqueda"></label>
+            <input type="text" id="busqueda" name="busqueda" placeholder="busca una pelicula">
+            <label for="submit"></label>
+            <input type="button" id="boton" name="boton" value="buscar">
+       </form>  
+       <button>CREAR UNA PELI</button>          
+        <section>
+            <div>
+                <a href="/editMovies" ><button>EDITAR</button></a>
+                <a href="" ><button>ELIMINAR</button></a>
+                
             </div>
-            <h2>Peliculas</h2>
-            <section>
-                <div class="card-group">
-                    <article class="card">
-                        <h2 class="card-title">
-                            <%= pelicula %>
-                        </h2>
-                        <img src="" alt="">
-                        <p class="card-text">
-                            <%= año %>
-                        </p>
-                        <p class="card-text">
-                            <%= director %>
-                        </p>
-                        <p class="card-text">
-                            <%= genero %>
-                        </p>
-                        <p class="card-text">
-                            <%= duracion %>
-                        </p>
-                    </article>
-                </div>
-                <div>
-                    <a href="/editMovies" class="boton-editMovies">EDITAR PELICULAS</a>
-                    <a href="/createMovies" class="boton-createMovies">CREAR PELICULAS</a>
-                </div>
-            </section>
-        </main>
+            <div>
+                <p>AÑO</p>
+                <p>DURACION</p>
+                <p>GENERO</p>
+            </div>
+            <div>
+                <h2>TITULO DE LA PELICULA</h2>
+                <p>DIRECTOR</p>
 
-        <%- include('./admin/templates/footer.ejs') %>
+            </div>
+            <div>
+                <img src="" alt="">
+            </div>
+        </section>
+        </section>
+</main>
+
+<%- include('./templates/footer.ejs') %>
