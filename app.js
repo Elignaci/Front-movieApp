@@ -11,7 +11,7 @@ app.use(cors())
 
 /* EJS */
 app.set('view engine', 'ejs')
-app.set('views', __dirname+'/views')
+
 
 /* PUBLIC VIEWS */
 app.use(express.static(__dirname + "/public"));
