@@ -1,36 +1,38 @@
 <%- include('./templates/header.ejs') %>
 <%- include('./templates/nav.ejs') %>
-<main>   
-    <h1>Todas las peliculas</h1>
-       <form action="">
-        <!-- buscar -->
-            <label for="busqueda"></label>
-            <input type="text" id="busqueda" name="busqueda" placeholder="busca una pelicula">
-            <label for="submit"></label>
-            <input type="button" id="boton" name="boton" value="buscar">
-       </form>  
-       <button>CREAR UNA PELI</button>          
-        <section>
+        <main>
+            <h1>Todas las peliculas</h1>
+            <form action="/admin" method="POST">
+                <!-- buscar -->
+                <label for="busqueda"></label>
+                <a href="/admin/search"><input type="text" id="busqueda" name="busqueda" placeholder="busca una pelicula"></a>
+                <label for="submit"></label>
+                <input type="button" id="boton" name="boton" value="buscar">
+            </form>
+            <p><a href="/admin/create-movies">CREAR PELICULA</a></p>
             <div>
-                <a href="/editMovies" ><button>EDITAR</button></a>
-                <a href="" ><button>ELIMINAR</button></a>
-                
+                <a href="/admin/edit"><button>EDITAR</button></a>
+                <a href=""><button>ELIMINAR</button></a>
             </div>
-            <div>
-                <p>AÑO</p>
-                <p>DURACION</p>
-                <p>GENERO</p>
-            </div>
-            <div>
-                <h2>TITULO DE LA PELICULA</h2>
-                <p>DIRECTOR</p>
-
-            </div>
-            <div>
-                <img src="" alt="">
-            </div>
-        </section>
-        </section>
-</main>
-
+            <section>
+                <% if (data.length> 0) { %>
+                    <% data.forEach(movie=> { %>
+                        <article>
+                                <div>
+                                    <h2><%= movie.title %></h2>
+                                    <p>Director:<%= movie.director  %></p>
+                                    <p>Año:<%= movie.year %></p>
+                                    <p>Duracion:<%= movie.duration %></p>
+                                    <p>Genero:<%= movie.genre_id %></p>
+                                </div>  
+                                <div>
+                                    <img src="" alt="">
+                                </div>
+                        </article>
+                            <% }) %>
+                    <% } else { %>
+                     <p>No hay pelis que mostrar</p>
+                <% } %>
+            </section> 
+        </main>
 <%- include('./templates/footer.ejs') %>

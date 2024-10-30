@@ -1,5 +1,5 @@
-const consulta = async (url, method = 'get', body = {}) => {
-
+/* require('dotenv').config(); */
+const busqueda = async (url, method = 'get', body = {}) => {
     let options = {}
 
     if (method == 'post' || method == 'put') {
@@ -17,7 +17,7 @@ const consulta = async (url, method = 'get', body = {}) => {
     }
     try {
         const respuesta = await fetch(`${process.env.URL_BASE}/${url}`, options)
-
+        console.log('entrando en la base de datos')
         if (respuesta.ok) {
             return await respuesta.json()
         } else {
@@ -29,5 +29,6 @@ const consulta = async (url, method = 'get', body = {}) => {
 }
 
 module.exports = {
-    consulta
+    busqueda
 }
+/* busqueda(`admin/movies`) */

@@ -1,23 +1,31 @@
 /* get index */
-const getIndex = (req, res) => {
-    res.render('users/index', {
+/* indice de la pagina */
+const getDashboard = (req, res) => {
+    res.render('users/dashboard', {
 
     })
 }
+/* vista de peliculas */    
 const getMovies = (req, res) => {
     res.render('users/movies', {
 
     })
 }
-
-const getMyMovies = (req, res) => {
-    res.render('users/myMovies', {
+/* funacion buscar peliculas */
+const searchMovies = (req, res) =>{
+    res.render('users/searchtitle', {
 
     })
 }
+/* peliculas favoritas */
+const getMyMovies = (req, res) => {
+    res.render('users/my-movies', {
 
+    })
+}
+/* vista de una sola peliculas(individual) */
 const getSingleMovies = (req, res) => {
-    res.render('users/singleMovie', {
+    res.render('user/searchtitle', {
 
     })
 }
@@ -25,8 +33,9 @@ const getSingleMovies = (req, res) => {
 
 
 module.exports = {
-    getIndex,
+    getDashboard,
     getMovies,
     getMyMovies,
-    getSingleMovies
+    getSingleMovies,
+    searchMovies
 }
