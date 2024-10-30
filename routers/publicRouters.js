@@ -2,16 +2,18 @@ const express = require('express');
 const router = express.Router()
 
 const {
-    getIndex,
+    getDashboard,
     getMovies,
     getMyMovies,
-    getSingleMovies
+    getSingleMovies,
+    searchMovies
     
     }= require('../controllers/publicControllers')
 
 /* get index */
-router.get('/',getIndex)
+router.get('/dashboard',getDashboard)
 router.get('/movies',getMovies)
+router.get('/search',searchMovies)
 router.get('/my-movies',getMyMovies)
 router.get('/movies',getSingleMovies)
 

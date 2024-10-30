@@ -2,16 +2,16 @@
 <%- include('./templates/nav.ejs') %>
         <main>
             <h1>Todas las peliculas</h1>
-            <form action="">
+            <form action="/admin" method="POST">
                 <!-- buscar -->
                 <label for="busqueda"></label>
-                <a href=""><input type="text" id="busqueda" name="busqueda" placeholder="busca una pelicula"></a>
+                <a href="/admin/search"><input type="text" id="busqueda" name="busqueda" placeholder="busca una pelicula"></a>
                 <label for="submit"></label>
                 <input type="button" id="boton" name="boton" value="buscar">
             </form>
             <p><a href="/admin/create-movies">CREAR PELICULA</a></p>
             <div>
-                <a href="admin/edit"><button>EDITAR</button></a>
+                <a href="/admin/edit"><button>EDITAR</button></a>
                 <a href=""><button>ELIMINAR</button></a>
             </div>
             <section>

@@ -1,6 +1,5 @@
 const { busqueda } = require("../helpers/ajax");
 
-
 /**
  * 
  * @param {*Object} req donde se almacena el request de la funcion
@@ -32,17 +31,21 @@ const getMovieByTitle = async (req, res) => {
     try {
         const { ok, data, msg } = await busqueda(url)
         console.log(data)
-        res.render('admin/movies', {
+        res.render('admin/search', {
             ok,
             data,
             msg: 'Peliculas'
         })
 
     } catch (error) {
-        console.log(error)
         throw (error)
     }
 };
+const searchMovies = async(req, res)=>{
+    res.render('admin/search',{
+
+    })
+}
 /* vista de crear peliculas */
 const viewCreateMovies = async (req, res) => {
     res.render('admin/createMovies', {})
@@ -61,7 +64,7 @@ const createMovies = async (req, res) => {
         throw (error)
     }
     res.redirect('create-movies')
-    res.render(admin/createmovie,{
+    res.render('admin/createmovie',{
         msg:'La pelicula ha sido creada exitosamente'
     })
     /* añadir mensaje de confirmacion */
@@ -82,8 +85,11 @@ const editMovies = async (req, res) => {
 }
 /* vista de editar peliculas */
 const viewEditMovie =async(req, res) =>{
-    res.render('admin/editMovies', {})
+    res.render('admin/editMovies', {
+
+    })
 }
+
 /* eliminar peliculas */
 const deleteMovies = async (req, res) => {
     return res.status(200).json({
@@ -92,6 +98,17 @@ const deleteMovies = async (req, res) => {
     /* solo mensaje arriba dela pagina, y ya */
 }
 
+const getAllGenres = async (req, res) => {
+    res.render('admin/genres', {
+
+    })
+}
+
+const creategenre = async(req, res) =>{
+    res.render('admin/create-genres', {
+
+    })
+}
 module.exports = {
 
     getAllMovies,
@@ -101,5 +118,8 @@ module.exports = {
     deleteMovies,
     viewCreateMovies,
     viewEditMovie,
+    getAllGenres,
+    creategenre,
+    searchMovies
     
 }

@@ -4,13 +4,12 @@
         <h2>Peliculas</h2>
         <section>
             <label for="busqueda"></label>
-                <a href=""><input type="text" id="busqueda" name="busqueda" placeholder="busca una pelicula"></a>
-                <input type="button" id="boton" name="boton" value="buscar">
+                <a href="/search"><input type="text" id="busqueda" name="busqueda" placeholder="busca una pelicula"><p>BUSCAR</p></a>
                 <div>
-                    <a href="users/my-movies"><button>favoritos</button></a>
+                    <li class="nav-item" class="nav-link active" aria-current="page">
+                        <a href="/users/my-movies">FAVORITOS</a>
+                    </li>
                     </div>
-                <label for="submit"></label>
-                <input type="button" id="boton" name="boton" value="buscar"><p>BUSCAR</p>
                 </div>
                     <div>
                         <h2>Titulo de la Pelicula:</h2>
@@ -19,11 +18,11 @@
                         <p>Duracion:</p>
                         <p>Genero:</p>
                     </div>  
-                    <div>
-                        <img src="" alt="">
-                    </div>
-                <section>
-    </section>
-</main>
+                <div><!-- multer -->
+                    <img src="" alt="">
+                </div>
+                <a href="/dashboard">ATRAS</a>
+        </section>
+    </main>
 
 <%- include('./templates/footer.ejs') %>

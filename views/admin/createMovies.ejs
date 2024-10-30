@@ -1,20 +1,18 @@
 <%- include('./templates/header.ejs') %>
-    <%- include('./templates/nav.ejs') %>
+<%- include('./templates/nav.ejs') %>
     <!-- (title, image_url, year, director, duration, genre_id) -->
         <main class="container">
             <h1>CREAR NUEVA PELICULA</h1>
             <section class="mb-5">
                 <form action="/admin/new" method="POST">
-                    <input type="text" id="title" name="title" placeholder="escribe aqui el titulo de la pelicula"
-                        class="from-control mb-2">
-                    <input type="text" id="director" name="director" placeholder="director de la pelicula"
-                        class="from-control mb-2">
-                    <input type="number" id="year" name="year" placeholder="año de publicacion" class="from-control mb-2">
-                    <input type="text" id="genre_id" name="genre_id" placeholder="genero de pelicula"
-                        class="from-control mb-2">
-                    <input type="number" id="duration" name="duration" placeholder="duration" class="from-control mb-2">
-                    <input type="submit" class="from-control btn btn-primary">
+                    <input type="text" id="title" name="title" placeholder="escribe aqui el titulo de la pelicula">
+                    <input type="text" id="director" name="director" placeholder="director de la pelicula">
+                    <input type="number" id="year" name="year" placeholder="año de publicacion" >
+                    <input type="text" id="genre_id" name="genre_id" placeholder="genero de pelicula">
+                    <input type="number" id="duration" name="duration" placeholder="duration" >
+                    <input type="submit">
                 </form>
+                    <a href="/admin">ATRAS</a>
             </section>
         </main>
-        <%- include('./templates/footer.ejs') %>
+<%- include('./templates/footer.ejs') %>
