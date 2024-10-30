@@ -1,22 +1,28 @@
 const express = require('express');
-const router = express.Router()
+const router = express.Router();
+const multer  = require('multer');
+const upload = multer({ dest: 'public/uploads/' });
 
-const { getAdmin,
+ 
+const { 
         getAllMovies,
         getMovieByTitle,
+        viewCreateMovies,
         createMovies,
-        updateMovies,
-        deleteMovies
+        editMovies,
+        deleteMovies,
+        viewEditMovie
      } = require('../controllers/adminControllers')
 
 /* get Admin*/
-router.get('/admin', getAdmin)
-router.get('/admin/movies', getAllMovies)
-router.get('/admin/movies', getMovieByTitle)
-router.post('/admin/createMovies', createMovies)
-router.put('/admin/editMovies', updateMovies)
-router.delete('/admin/editMovies', deleteMovies)
+
+router.get('/', getAllMovies)
+router.get('/movies/:title', getMovieByTitle)
+router.get('/create-movies', viewCreateMovies)
+router.post('/new', upload.single('pictures'), createMovies)
+router.put('/edit-movie/:id', editMovies)
+router.get('/edit',viewEditMovie)
+router.delete('/delete-movies/:id', deleteMovies)
 
 
-
-module.exports = router;
+module.exports=router;

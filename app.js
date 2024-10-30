@@ -11,6 +11,11 @@ app.use(cors())
 
 /* EJS */
 app.set('view engine', 'ejs')
+// parse application/x-www-form-urlencoded
+app.use(express.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(express.json())
 
 
 /* PUBLIC VIEWS */
