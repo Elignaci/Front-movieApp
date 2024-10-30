@@ -11,9 +11,8 @@ const {
 
 /* get index */
 router.get('/',getIndex)
-
 router.get('/movies',getMovies)
-router.get('/myMovies',getMyMovies)
+router.get('/my-movies',getMyMovies)
 router.get('/movies',getSingleMovies)
 
 

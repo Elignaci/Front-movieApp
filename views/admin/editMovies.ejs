@@ -3,13 +3,15 @@
 <main>
     <h1>EDITAR PELICULA</h1>
     <section class="mb-5"> 
-        <form action="/movies" method="POST">
-            <input type="text" id="titulo" name="titulo" placeholder="escribe aqui el titulo de la pelicula">
-            <input type="text" id="director" name="director" placeholder="director de la pelicula">
-            <input type="number" id="año" name="año" placeholder="año de publicacion">
-            <input type="text" id="genero" name="genero" placeholder="genero de pelicula">
-            <input type="number" id="duracion" name="duracion" placeholder="duracion">
-            <input type="submit">
+        <form action="/admin/edit" method="POST">
+                    <input type="text" id="title" name="title" placeholder="escribe aqui el titulo de la pelicula">
+                    <input type="text" id="director" name="director" placeholder="director de la pelicula">
+                    <input type="number" id="year" name="year" placeholder="año de publicacion" >
+                    <input type="text" id="genre_id" name="genre_id" placeholder="genero de pelicula">
+                    <input type="number" id="duration" name="duration" placeholder="duration" >
+                    <input type="submit" >
+        </form>
+        <form action="/admin/edit-movies"><button>EDITAR PELICULA</button>
         </form>
     </section>
 </main>

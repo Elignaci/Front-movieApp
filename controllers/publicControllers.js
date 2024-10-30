@@ -4,6 +4,7 @@ const getIndex = (req, res) => {
 
     })
 }
+    
 const getMovies = (req, res) => {
     res.render('users/movies', {
 
@@ -11,13 +12,13 @@ const getMovies = (req, res) => {
 }
 
 const getMyMovies = (req, res) => {
-    res.render('users/myMovies', {
+    res.render('users/my-movies', {
 
     })
 }
 
 const getSingleMovies = (req, res) => {
-    res.render('users/singleMovie', {
+    res.render('users/singlemovie', {
 
     })
 }

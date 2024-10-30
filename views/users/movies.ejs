@@ -1,41 +1,28 @@
 <%- include('./templates/header.ejs') %>
 <%- include('./templates/nav.ejs') %>
-<main>
-    <h2>Peliculas</h2>
-    <section>
-        <% if (ok) { %>
-            <% if (data.length> 0) { %>
-                <div class="card-group">
-                    <% data.forEach(({ pelicula, año, director, genero, duracion })=> { %>
-                        <article class="card">
-                            <h2 class="card-title">
-                                <%= pelicula %>
-                            </h2>
-                            <img src="" alt="">
-                            <p class="card-text">
-                                <%= año %>
-                            </p>
-                            <p class="card-text">
-                                <%= director %>
-                            </p>
-                            <p class="card-text">
-                                <%= genero %>
-                            </p>
-                            <p class="card-text">
-                                <%= duracion %>
-                            </p>
-                        </article>
-                        <% }) %>
-                <% } else { %>
-            <p>Pelicula no encontrada</p>
-            <% } %>
-        <% } else { %>
-        <p>Hubo un problema en la carga. Intentalo mas tarde.</p>
-                <% } %>
+    <main>
+        <h2>Peliculas</h2>
+        <section>
+            <label for="busqueda"></label>
+                <a href=""><input type="text" id="busqueda" name="busqueda" placeholder="busca una pelicula"></a>
+                <input type="button" id="boton" name="boton" value="buscar">
+                <div>
+                    <a href="users/my-movies"><button>favoritos</button></a>
+                    </div>
+                <label for="submit"></label>
+                <input type="button" id="boton" name="boton" value="buscar"><p>BUSCAR</p>
                 </div>
-            <div class="favoritos">
-                <button type="button" class="btn btn-primary">Favoritos></button>
-            </div>
+                    <div>
+                        <h2>Titulo de la Pelicula:</h2>
+                        <p>Director:</p>
+                        <p>Año:</p>
+                        <p>Duracion:</p>
+                        <p>Genero:</p>
+                    </div>  
+                    <div>
+                        <img src="" alt="">
+                    </div>
+                <section>
     </section>
 </main>
 
