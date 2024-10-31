@@ -43,7 +43,16 @@ const getMovieByTitle = async (req, res) => {
 
 /* vista de crear peliculas */
 const viewCreateMovies = async (req, res) => {
-    res.render('admin/createMovies', {})
+    try {
+        const url = "admin/genres";
+        const genres = await busqueda(url);
+        res.render('admin/createMovies', {
+            genres
+        })
+    } catch (error) {
+        console.log(error);
+        throw (error);
+    }
 }
 
 /* crear peliculas */
@@ -55,16 +64,11 @@ const createMovies = async (req, res) => {
     try {
         const respuesta = await busqueda(url, 'post', body);
         console.log(respuesta);
+        res.redirect('/admin')
     } catch (error) {
         console.log(error);
         throw (error);
     }
-    res.redirect('/admin')
-    /*
-    res.render('admin/createmovie',{
-        msg:'La pelicula ha sido creada exitosamente'
-    })*/
-    /* añadir mensaje de confirmacion */
 }
 
 /* vista de editar peliculas */
@@ -89,17 +93,17 @@ const viewEditMovie =async(req, res) =>{
 
 /* editar peliculas */
 const editMovies = async (req, res) => {
-    const id = req.param.id;
-    const body = req.body;
-    const url = `admin/editmovie/${id}`;
     try {
-        const respuesta = await busqueda(url,'put',body)
-        //console.log(respuesta)
+        const id = req.params.id;
+        const body = req.body;
+        body.image_url = " ";
+        const url = `admin/editmovie/${id}`;
+        await busqueda(url, 'put', body)
+        res.redirect('/admin')
     } catch (error) {
         console.log(error)
         throw (error)
     }
-    res.redirect('/admin')
 }
 
 /* eliminar peliculas */

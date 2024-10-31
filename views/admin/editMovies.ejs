@@ -8,18 +8,12 @@
             <input type="text" id="director" name="director" value="<%= movie.data.director %>" placeholder="director de la pelicula">
             <input type="number" id="year" name="year" value=<%= movie.data.year %> placeholder="año de publicacion" >
             <input type="text" id="genre_id" name="genre_id" value=<%= movie.data.genre_id %> hidden>
-            <input type="text" id="genre_id" name="genre_name" value=<%= movie.data.genre_name %> placeholder="genero de pelicula" disabled>
-            <input type="radio" id="new_genre" name="option" checked>
-            <label for="create_new_genre" >User mismo genero</label>
-            <input type="radio" id="new_genre" name="option">
-            <label for="create_new_genre">Crear nuevo genero</label>
-            <input type="radio" id="existing_genre" name="option">
-            <label for="use_existing_genre">Usar otros generos</label>
-            <select id="genres" hidden>
-                <option value="">Selecciona un genero</option>
+            <select id="genres">
                 <% if (genres.data.length> 0) { %>
                     <% genres.data.forEach( genre => { %>
-                        <option value=<%= genre.id %>><%=genre.name %></option>
+                        <option value="<%= genre.id %>" <%= genre.id === movie.data.genre_id ? 'selected' : '' %>>
+                            <%= genre.name %>
+                        </option>
                     <% }) %>
                     <% } else { %>
                      <p>No hay generos</p>
@@ -31,4 +25,10 @@
         </form>
     </section>
 </main>
+    <script>
+        document.getElementById('genres').addEventListener('change', function() {
+            document.getElementById('genre_id').value = this.value;
+        });
+    </script>
     <%- include('./templates/footer.ejs') %>
+
