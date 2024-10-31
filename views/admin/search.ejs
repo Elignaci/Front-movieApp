@@ -2,13 +2,27 @@
 <%- include('./templates/nav.ejs') %>
 
 <form action="/admin/search" method="POST">
-    <div>
-        <h2>Titulo de la Pelicula:</h2>
-        <p>Director:</p>
-        <p>Año:</p>
-        <p>Duracion:</p>
-        <p>Genero:</p>
-    </div>  
-</form>       
+    <label for="busqueda"></label>
+    <input type="text" id="busqueda" name="busqueda" placeholder="Buscar una pelicula">
+    <button type="submit">BUSCAR</button>
+</form>
+<div>
+    <% if (data.length> 0) { %>
+        <% data.forEach( movie => { %>
+                <div>
+                    <h2><%= movie.title %></h2>
+                    <p>Director: <%= movie.director %></p>
+                    <p>Año: <%= movie.year %></p>
+                    <p>Duracion: <%= movie.duration %></p>
+                    <p>Genero: <%= movie.genre_name %></p>
+                </div>  
+                <div>
+                    <img src="" alt="">
+                </div>
+                <% }) %>
+        <% } else { %>
+            <p>No hay pelis que mostrar</p>
+    <% } %>
+</div>        
 <a href="/admin">ATRAS</a>
 <%- include('./templates/footer.ejs') %>
