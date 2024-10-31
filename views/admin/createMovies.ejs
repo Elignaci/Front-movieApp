@@ -8,11 +8,25 @@
                     <input type="text" id="title" name="title" placeholder="escribe aqui el titulo de la pelicula">
                     <input type="text" id="director" name="director" placeholder="director de la pelicula">
                     <input type="number" id="year" name="year" placeholder="año de publicacion" >
-                    <input type="text" id="genre_id" name="genre_id" placeholder="genero de pelicula">
+                    <input type="hidden" id="genre_id" name="genre_id">
+                    <select id="genres">
+                        <% if (genres.data.length> 0) { %>
+                            <% genres.data.forEach( genre => { %>
+                                <option value="<%= genre.id %>"><%= genre.name %></option>
+                            <% }) %>
+                            <% } else { %>
+                             <p>No hay generos</p>
+                        <% } %>
+                    </select>
                     <input type="number" id="duration" name="duration" placeholder="duration" >
                     <input type="submit">
                 </form>
                     <a href="/admin">ATRAS</a>
             </section>
         </main>
+        <script>
+            document.getElementById('genres').addEventListener('change', function() {
+                document.getElementById('genre_id').value = this.value;
+            });
+        </script>
 <%- include('./templates/footer.ejs') %>
