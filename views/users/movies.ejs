@@ -1,28 +1,34 @@
 <%- include('./templates/header.ejs') %>
 <%- include('./templates/nav.ejs') %>
-    <main>
-        <h2>Todas las peliculas</h2>
-        <section>
-            <label for="busqueda"></label>
-                <a href="/search"><input type="text" id="busqueda" name="busqueda" placeholder="busca una pelicula"></a>
-                <div>
-                    <li>
-                        <a href="/movies">FAVORITOS</a>
-                    </li>
-                    </div>
-                </div>
-                    <div>
-                        <h2>Titulo de la Pelicula:</h2>
-                        <p>Director:</p>
-                        <p>Año:</p>
-                        <p>Duracion:</p>
-                        <p>Genero:</p>
-                    </div>  
-                <div><!-- multer -->
-                    <img src="" alt="">
-                </div>
-                <a href="/dashboard">ATRAS</a>
-        </section>
-    </main>
+<main>
+    <h1>Todas las peliculas</h1>
+    <form action="/user/searchtitle" method="POST"> <!-- en el action va la ruta que tiene la funcion de buscar la pelicula -->
+        <!-- buscar -->
+        <label for="busqueda"></label>
+        <input type="text" id="busqueda" name="busqueda" placeholder="Buscar una pelicula">
+        <button type="submit">BUSCAR</button>
+    </form>
+
+    <section>
+        <% if (data.length> 0) { %>
+            <% data.forEach( movie => { %>
+                <article>
+                        <div>
+                            <h2><%= movie.title %></h2>
+                            <p>Director: <%= movie.director %></p>
+                            <p>Año: <%= movie.year %></p>
+                            <p>Duracion: <%= movie.duration %></p>
+                            <p>Genero: <%= movie.genre_name %></p>
+                        </div>  
+                        <div>
+                            <img src="" alt="">
+                        </div>
+                </article>
+                    <% }) %>
+            <% } else { %>
+             <p>No hay pelis que mostrar</p>
+        <% } %>
+    </section> 
+</main>
 
 <%- include('./templates/footer.ejs') %>
