@@ -1,7 +1,12 @@
-/* require('dotenv').config(); */
+const fetch= require('node-fetch');
+
+
+/* fetch('https://back-movie-app-u72s.onrender.com/api/v1')
+    .then(res=>res.json())
+    .then(json=>console.log(body)) */
+
 const busqueda = async (url, method = 'get', body = {}) => {
     let options = {}
-
     if (method == 'post' || method == 'put') {
         options = {
             method,
@@ -12,18 +17,22 @@ const busqueda = async (url, method = 'get', body = {}) => {
         }
     } else if (method == 'get' || method == 'delete') {
         options = {
-            method,
+            method
         }
     }
     try {
+        console.log(options);
+        console.log(`${process.env.URL_BASE}/${url}`);
         const respuesta = await fetch(`${process.env.URL_BASE}/${url}`, options)
         console.log('entrando en la base de datos')
         if (respuesta.ok) {
             return await respuesta.json()
         } else {
-            throw respuesta.json()
+            const errorResponse = await respuesta.json();
+            throw new Error(`Error ${respuesta.status}: ${JSON.stringify(errorResponse)}`);
         }
     } catch (error) {
+        console.log(error);
         throw error
     }
 }
@@ -31,4 +40,4 @@ const busqueda = async (url, method = 'get', body = {}) => {
 module.exports = {
     busqueda
 }
-/* busqueda(`admin/movies`) */
+
