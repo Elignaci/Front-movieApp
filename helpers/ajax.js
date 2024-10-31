@@ -1,4 +1,10 @@
-/* require('dotenv').config(); */
+const fetch= require('node-fetch');
+
+
+/* fetch('https://back-movie-app-u72s.onrender.com/api/v1')
+    .then(res=>res.json())
+    .then(json=>console.log(body)) */
+
 const busqueda = async (url, method = 'get', body = {}) => {
     let options = {}
 
@@ -31,4 +37,4 @@ const busqueda = async (url, method = 'get', body = {}) => {
 module.exports = {
     busqueda
 }
-/* busqueda(`admin/movies`) */
+

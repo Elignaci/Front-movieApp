@@ -7,25 +7,13 @@ const getDashboard = (req, res) => {
 }
 /* vista de peliculas */    
 const getMovies = (req, res) => {
-    res.render('users/movies', {
+    res.render('users/favorites', {
 
     })
 }
 /* funacion buscar peliculas */
 const searchMovies = (req, res) =>{
-    res.render('users/searchtitle', {
-
-    })
-}
-/* peliculas favoritas */
-const getMyMovies = (req, res) => {
-    res.render('users/my-movies', {
-
-    })
-}
-/* vista de una sola peliculas(individual) */
-const getSingleMovies = (req, res) => {
-    res.render('user/searchtitle', {
+    res.render('users/movies', {
 
     })
 }
@@ -35,7 +23,5 @@ const getSingleMovies = (req, res) => {
 module.exports = {
     getDashboard,
     getMovies,
-    getMyMovies,
-    getSingleMovies,
     searchMovies
 }
