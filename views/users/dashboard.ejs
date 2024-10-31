@@ -2,13 +2,8 @@
 <%- include('./templates/nav.ejs')  %>
 <h1>USUARIOS</h1> 
 <main>
-    <form action="/dashboard" method="POST">
-        <div id="search container">
-            <input type="button" id="search-button" name="search-button">
-            <button type="button" id="search-button" class="search-button" placeholder="busca una pelicula">BUSCAR UNA PELI
-            <button type="button" id="search-button" class="search-button">MIS PELIS</button>
-        </div>
-    </form>
+    <a href="/search"><button>Buscar una peli</button></a>
+    <a href="/movies"><button>Mis pelis</button></a>
 </main>
 
 <%- include('./templates/footer.ejs')  %>
